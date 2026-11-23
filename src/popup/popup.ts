@@ -84,6 +84,7 @@ function paint(s: Settings): void {
     s = await saveSettings({ theme: v });
     paint(s);
   });
+  $('#reload').addEventListener('click', () => { chrome.runtime.reload(); });
 })();
 
 // 手动安装（zip 解压）不会自动更新：没有 update_url 时，向 GitHub Releases 查询最新版本并提示。

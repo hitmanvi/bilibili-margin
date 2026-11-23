@@ -636,6 +636,9 @@ function buildSettingsPanel(sheet: SettingsPage, get: () => Settings, currentSha
         h('a', { href: 'https://github.com/jiuyang5354/bilibili-margin', target: '_blank', rel: 'noopener noreferrer' }, 'GitHub'),
         h('a', { href: 'https://github.com/jiuyang5354/bilibili-margin/releases', target: '_blank', rel: 'noopener noreferrer' }, '更新日志'))),
     row('版本更新', '商店版由浏览器自动更新；解压安装版下载后覆盖原文件夹并重新加载。', h('div', { style: 'max-width:240px;min-width:0;text-align:right' }, checkUpdate, updateStatus)),
+    row('重载扩展', '改过代码或重新 build 后点此让浏览器重新加载本扩展', h('button', {
+      type: 'button', class: 'ghost small', onclick: () => { void chrome.runtime.sendMessage({ margin: 'reload-extension' }); },
+    }, '重载')),
     h('div', { class: 'row' },
       h('div', { class: 'row-label' },
         h('span', {}, '恢复默认设置'),
